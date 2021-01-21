@@ -1,5 +1,8 @@
 package com.qa.demo.services;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
@@ -32,6 +35,14 @@ public class DogService {
 		Dog result = this.repo.save(dog);
 		// Returns the converted dog object into dogDTO
 		return this.mapToDTO(result);
+	}
+
+	// Read All
+	public List<DogDTO> readAll() {
+		// Reads all the tuples in database
+		List<Dog> catList = this.repo.findAll();
+		// Return the mapped List of all dogs 
+		return catList.stream().map(this::mapToDTO).collect(Collectors.toList());
 	}
 
 }

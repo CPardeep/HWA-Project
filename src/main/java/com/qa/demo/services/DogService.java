@@ -41,8 +41,23 @@ public class DogService {
 	public List<DogDTO> readAll() {
 		// Reads all the tuples in database
 		List<Dog> catList = this.repo.findAll();
-		// Return the mapped List of all dogs 
+		// Return the mapped List of all dogs
 		return catList.stream().map(this::mapToDTO).collect(Collectors.toList());
+	}
+
+	// Update
+	public DogDTO update(Long id, Dog dog) {
+		// First step is to fetch it from the database
+		Dog result = this.repo.findById(id).orElseThrow();
+		// Then we can set update with new values
+		result.setName(dog.getName());
+		result.setBreed(dog.getBreed());
+		result.setAge(dog.getAge());
+		result.setColour(dog.getColour());
+		result.setAvailable(dog.getAvailable());
+		// Save the the new added set characteristics
+		Dog updated = this.repo.save(result);
+		return mapToDTO(updated);
 	}
 
 }

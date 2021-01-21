@@ -5,7 +5,9 @@ import java.util.List;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -32,10 +34,16 @@ public class DogController {
 		return new ResponseEntity<DogDTO>(this.service.create(dog), HttpStatus.CREATED);
 	}
 
-	// GetAll
+	// Get
 	@GetMapping("/readAll")
 	public ResponseEntity<List<DogDTO>> readAll() {
 		return ResponseEntity.ok(this.service.readAll());
+	}
+
+	// Put
+	@PutMapping("/update/{id}")
+	public ResponseEntity<DogDTO> update(@PathVariable("id") Long id, @RequestBody Dog dog) {
+		return new ResponseEntity<DogDTO>(this.service.update(id, dog), HttpStatus.OK);
 	}
 
 }

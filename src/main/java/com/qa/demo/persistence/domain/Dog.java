@@ -10,34 +10,29 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
 public class Dog {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long ID;
-	
+
 	@Column
 	private String name;
-	
+
 	@Column
 	private String breed;
 
 	@Column
 	private int age;
-	
+
 	@Column
 	private String colour;
-	
+
 	@Column
 	private String available;
-	
-	
-	
-	
-	
+
 }

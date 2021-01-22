@@ -48,8 +48,8 @@ public class ShelterService {
 		Shelter result = this.repo.findById(id).orElseThrow();
 		// Then we can set update with new values
 		result.setName(shelter.getName());
-		result.setName(shelter.getAddressLine());
-		result.setName(shelter.getPostcode());
+		result.setAddressLine(shelter.getAddressLine());
+		result.setPostcode(shelter.getPostcode());
 
 		// Save the the new added set characteristics
 		Shelter updated = this.repo.save(result);

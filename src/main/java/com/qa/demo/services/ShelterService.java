@@ -1,5 +1,8 @@
 package com.qa.demo.services;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 import com.qa.demo.persistence.domain.Shelter;
@@ -30,6 +33,14 @@ public class ShelterService {
 		Shelter result = this.repo.save(shelter);
 		// Returns the converted Shelter object into ShelterDTO
 		return this.mapToDTO(result);
+	}
+
+	// Read All
+	public List<ShelterDTO> readAll() {
+		// Reads all the tuples in database
+		List<Shelter> list = this.repo.findAll();
+		// Return the mapped List of all dogs
+		return list.stream().map(this::mapToDTO).collect(Collectors.toList());
 	}
 
 }

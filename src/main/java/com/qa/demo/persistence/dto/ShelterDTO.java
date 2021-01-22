@@ -7,13 +7,13 @@ public class ShelterDTO {
 
 	private String addressLine;
 
-	private int postcode;
+	private String postcode;
 
 	public ShelterDTO() {
 		super();
 	}
 
-	public ShelterDTO(Long iD, String name, String addressLine, int postcode) {
+	public ShelterDTO(Long iD, String name, String addressLine, String postcode) {
 		super();
 		ID = iD;
 		this.name = name;
@@ -51,11 +51,11 @@ public class ShelterDTO {
 		this.addressLine = addressLine;
 	}
 
-	public int getPostcode() {
+	public String getPostcode() {
 		return postcode;
 	}
 
-	public void setPostcode(int postcode) {
+	public void setPostcode(String postcode) {
 		this.postcode = postcode;
 	}
 

@@ -24,4 +24,12 @@ public class ShelterService {
 		return this.mapper.map(shelter, ShelterDTO.class);
 	}
 
+	// Create
+	public ShelterDTO create(Shelter shelter) {
+		// Saves the shelter to the database
+		Shelter result = this.repo.save(shelter);
+		// Returns the converted Shelter object into ShelterDTO
+		return this.mapToDTO(result);
+	}
+
 }

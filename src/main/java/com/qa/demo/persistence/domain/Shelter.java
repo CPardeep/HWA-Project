@@ -26,5 +26,5 @@ public class Shelter {
 	private String addressLine;
 
 	@Column
-	private int postcode;
+	private String postcode;
 }

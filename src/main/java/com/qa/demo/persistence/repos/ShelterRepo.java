@@ -7,4 +7,5 @@ import com.qa.demo.persistence.domain.Shelter;
 @Repository
 public interface ShelterRepo extends JpaRepository<Shelter, Long> {
 	// CRUD Functionality
+
 }

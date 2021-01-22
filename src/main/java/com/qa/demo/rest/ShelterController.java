@@ -3,6 +3,7 @@ package com.qa.demo.rest;
 import java.util.List;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -41,6 +42,13 @@ public class ShelterController {
 	@PutMapping("/update/{id}")
 	public ResponseEntity<ShelterDTO> update(@PathVariable("id") Long id, @RequestBody Shelter shelter) {
 		return new ResponseEntity<ShelterDTO>(this.service.update(id, shelter), HttpStatus.ACCEPTED);
+	}
+
+	// Delete
+	@DeleteMapping("/delete/{id}")
+	public ResponseEntity<Boolean> delete(@PathVariable Long id) {
+		// Remove Person and return it
+		return new ResponseEntity<Boolean>(this.service.delete(id), HttpStatus.NO_CONTENT);
 	}
 
 }

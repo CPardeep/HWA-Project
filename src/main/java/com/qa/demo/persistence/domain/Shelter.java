@@ -27,4 +27,5 @@ public class Shelter {
 
 	@Column
 	private String postcode;
+
 }

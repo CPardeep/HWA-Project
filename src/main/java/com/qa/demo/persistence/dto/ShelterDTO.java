@@ -15,7 +15,7 @@ public class ShelterDTO {
 
 	public ShelterDTO(Long iD, String name, String addressLine, String postcode) {
 		super();
-		ID = iD;
+		this.ID = iD;
 		this.name = name;
 		this.addressLine = addressLine;
 		this.postcode = postcode;

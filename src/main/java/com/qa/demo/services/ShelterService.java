@@ -56,4 +56,14 @@ public class ShelterService {
 		return mapToDTO(updated);
 	}
 
+	// Delete
+	public boolean delete(Long id) {
+		// removes the entity
+		this.repo.deleteById(id);
+		// checks to see if it still exists
+		boolean exists = this.repo.existsById(id);
+		// returns true if entity no longer exists
+		return !exists;
+	}
+
 }

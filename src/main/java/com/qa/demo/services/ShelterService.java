@@ -2,7 +2,6 @@ package com.qa.demo.services;
 
 import java.util.List;
 import java.util.stream.Collectors;
-
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 import com.qa.demo.persistence.domain.Shelter;
@@ -41,6 +40,20 @@ public class ShelterService {
 		List<Shelter> list = this.repo.findAll();
 		// Return the mapped List of all dogs
 		return list.stream().map(this::mapToDTO).collect(Collectors.toList());
+	}
+
+	// Update
+	public ShelterDTO update(Long id, Shelter shelter) {
+		// First step is to fetch it from the database
+		Shelter result = this.repo.findById(id).orElseThrow();
+		// Then we can set update with new values
+		result.setName(shelter.getName());
+		result.setName(shelter.getAddressLine());
+		result.setName(shelter.getPostcode());
+
+		// Save the the new added set characteristics
+		Shelter updated = this.repo.save(result);
+		return mapToDTO(updated);
 	}
 
 }

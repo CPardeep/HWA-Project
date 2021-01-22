@@ -1,7 +1,6 @@
 package com.qa.demo.rest;
 
 import java.util.List;
-
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -35,5 +34,4 @@ public class ShelterController {
 	public ResponseEntity<List<ShelterDTO>> readAll() {
 		return ResponseEntity.ok(this.service.readAll());
 	}
-
 }

@@ -7,6 +7,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 @Entity
@@ -17,6 +18,7 @@ public class Dog {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@EqualsAndHashCode.Exclude
 	private Long ID;
 
 	@Column
@@ -36,5 +38,16 @@ public class Dog {
 	
 	@ManyToOne(targetEntity = Shelter.class)
     private Shelter shelter = null;
+
+	public Dog(String name, String breed, int age, String colour, String available) {
+		super();
+		this.name = name;
+		this.breed = breed;
+		this.age = age;
+		this.colour = colour;
+		this.available = available;
+	}
+	
+	
 
 }

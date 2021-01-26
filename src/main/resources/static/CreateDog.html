@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Document</title>
+<title>Create Dog</title>
 
 <!-- Bootstrap CSS link here -->
 <link
@@ -42,7 +42,7 @@
 
 		<main>
 			<fieldset>
-				<legend>Add your Pet Details:</legend>
+				<legend>Add your Dog Details:</legend>
 				<form method="GET" action="./HomePage.html">
 					<div class="form-group">
 	
@@ -53,13 +53,13 @@
 						<input type="text" class="form-control"id="dogBreed" name="dogBreed" required/>
 			
 						<label for="example-number-input" class="col-2 col-form-label">Age:</label>
-						<input class="form-control" type="number" value="15" id="dogAge" name="dogAge">
+						<input class="form-control" type="number" value="15" id="dogAge" name="dogAge" required>
 						
 						<label for="example-color-input" class="col-2 col-form-label">Color</label>
 						<input class="form-control" type="color" value="#563d7c" id="dogColour" name="dogColour">
 	
 						<label for="exampleFormControlSelect1" class="col-2 col-form-label">Available:</label>
-						<select class="form-control" id="dogAvailable" name="dogAvailable">
+						<select class="form-control" id="dogAvailable" name="dogAvailable" required>
 							<option>Yes</option>
 							<option>Reserved</option>
 							<option>No</option>

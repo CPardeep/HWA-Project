@@ -1,10 +1,10 @@
 "use strict";
-const shelterId = document.querySelector("#shelterId");
-const shelterName = document.querySelector("#shelterName");
-const addressLine = document.querySelector("#addressLine");
-const postcode = document.querySelector("#postcode");
+let shelterId = document.querySelector("#shelterId");
+let shelterName = document.querySelector("#shelterName");
+let addressLine = document.querySelector("#addressLine");
+let postcode = document.querySelector("#postcode");
 
-const createShelter = () => {
+let createShelter = () => {
 
     fetch("http://localhost:8080/shelter/create", {
         method: 'POST',
@@ -22,7 +22,7 @@ const createShelter = () => {
         .catch((err => console.error("Error please stop what you're doing")))
 }
 
-const updateShelter = () => {
+let updateShelter = () => {
 
     fetch("http://localhost:8080/shelter/update/"+ shelterId.value, {
         method: 'PUT',
@@ -40,3 +40,11 @@ const updateShelter = () => {
         .catch((err => console.error("Error please stop what you're doing")))
 
 }
+
+let delShelter = () => {
+    fetch("http://localhost:8080/shelter/delete/" + shelterId.value, {
+        method: `DELETE`})
+        .then((response) => response.json())
+        .then((json) => console.log(json))
+        .catch((err) => console.error(`Stop! ${err}`));
+};

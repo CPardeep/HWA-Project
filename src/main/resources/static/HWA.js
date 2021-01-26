@@ -1,3 +1,4 @@
+"use strict";
 let readDog = () => {
 	fetch(`http://localhost:8080/dog/readAll`)
 		.then((response) => response.json())

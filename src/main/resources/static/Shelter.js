@@ -1,17 +1,17 @@
 "use strict";
-const dogId = document.querySelector("#dogName");
-const shelterName = document.querySelector("#shelterName");
-const addressLine = document.querySelector("#addressLine");
-const postcode = document.querySelector("#postcode");
+let shelterId = document.querySelector("#shelterId");
+let shelterName = document.querySelector("#shelterName");
+let addressLine = document.querySelector("#addressLine");
+let postcode = document.querySelector("#postcode");
 
-const createShelter = () => {
+let createShelter = () => {
 
     fetch("http://localhost:8080/shelter/create", {
         method: 'POST',
         body: JSON.stringify({
             "name": shelterName.value,
             "addressLine": addressLine.value,
-            "postcode": postcode.value,
+            "postcode": postcode.value
         }),
         headers: {
             "Content-Type": "application/json"
@@ -21,3 +21,30 @@ const createShelter = () => {
         .then((json) => console.log(json))
         .catch((err => console.error("Error please stop what you're doing")))
 }
+
+let updateShelter = () => {
+
+    fetch("http://localhost:8080/shelter/update/"+ shelterId.value, {
+        method: 'PUT',
+        body: JSON.stringify({
+            "name": shelterName.value,
+            "addressLine": addressLine.value,
+            "postcode": postcode.value
+        }),
+        headers: {
+            "Content-Type": "application/json"
+        }
+    })
+        .then((response) => response.json())
+        .then((json) => console.log(json))
+        .catch((err => console.error("Error please stop what you're doing")))
+
+}
+
+let delShelter = () => {
+    fetch("http://localhost:8080/shelter/delete/" + shelterId.value, {
+        method: `DELETE`})
+        .then((response) => response.json())
+        .then((json) => console.log(json))
+        .catch((err) => console.error(`Stop! ${err}`));
+};

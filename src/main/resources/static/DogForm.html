@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Document</title>
+
+<!-- Bootstrap CSS link here -->
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
+	crossorigin="anonymous" />
+</head>
+
+<body><div class="container">
+		
+	<header>
+		<nav class="navbar navbar-light" style="background-color: #ffffff">
+			<div class="container-fluid">
+				<a class="navbar-brand" href="./HomePage.html"> <img src="../resources/4c965a28f1760097c4797e62315558f3.png" height="30" alt="logo" loading="lazy" /><h1>S H E L T E R</h1></a>
+				<button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#togglethis" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="togglethis">
+					<ul class="navbar-nav">
+						<li class="nav-item active"><a href="./DogForm.html" class="nav-link">D O G - F O R M</a></li>
+						<li class="nav-item"><a href="./ShelterForm.html" class="nav-link">S H E L T E R - F O R M</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+	</header>
+
+	<main>
+		<fieldset>
+			<div class="row">
+				<div class="col-sm"></div>
+			</div>
+		</fieldset>
+
+		<fieldset>
+            <legend>Add your Pet Details:</legend>
+            <form method="GET" action="./HomePage.html">
+                <div class="form-group">
+
+                    <label class="col-2 col-form-label">Enter the Name of the dog:</label>
+                    <input type="text" class="form-control" id="dogName" name="dogName" required/>
+                        
+                    <label class="col-2 col-form-label">Enter the Breed of the dog:</label>
+                    <input type="text" class="form-control"id="dogBreed" name="dogBreed" required/>
+        
+					<label for="example-number-input" class="col-2 col-form-label">Age:</label>
+					<input class="form-control" type="number" value="15" id="dogAge" name="dogAge">
+					
+					<label for="example-color-input" class="col-2 col-form-label">Color</label>
+					<input class="form-control" type="color" value="#563d7c" id="dogColour" name="dogColour">
+
+					<label for="exampleFormControlSelect1" class="col-2 col-form-label">Available:</label>
+					<select class="form-control" id="dogAvailable" name="dogAvailable">
+						<option>Yes</option>
+						<option>Reserved</option>
+						<option>No</option>
+					</select>
+
+					</br>
+
+					<button type="submit" class="btn btn-primary text-center" onclick="createDog()">Add Dog</button>
+        
+                </div>
+			</form>
+		</fieldset>
+		
+		
+		</main>
+
+		<footer>
+			<p>&copy; 2021 www.shelter.co.uk</p>
+		</footer>
+
+		<!-- JavaScript Link here -->
+		<script
+			src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+			crossorigin="anonymous"></script>
+		<script src="./Dog.js"></script>
+</div></body>
+</html>

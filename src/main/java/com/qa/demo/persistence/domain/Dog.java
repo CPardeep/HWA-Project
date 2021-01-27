@@ -37,7 +37,7 @@ public class Dog {
 	private String available;
 	
 	@ManyToOne(targetEntity = Shelter.class)
-    private Shelter shelter = null;
+    private Shelter shelter;
 
 	public Dog(String name, String breed, int age, String colour, String available) {
 		super();

@@ -1,5 +1,7 @@
 package com.qa.demo;
 
+import java.util.logging.Logger;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -7,9 +9,11 @@ import org.springframework.context.ApplicationContext;
 @SpringBootApplication
 public class HwaProjectApplication {
 
+	private static Logger LOGGER = Logger.getGlobal();
+
 	public static void main(String[] args) {
 		ApplicationContext context = SpringApplication.run(HwaProjectApplication.class, args);
-		System.out.println(context.getBean("greeting", String.class));
+		LOGGER.info(context.getBean("greeting", String.class));
 	}
 
 }

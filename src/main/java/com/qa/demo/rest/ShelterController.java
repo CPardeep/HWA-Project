@@ -33,6 +33,12 @@ public class ShelterController {
 	}
 
 	// Get
+	@GetMapping("/read/{id}")
+	public ResponseEntity<ShelterDTO> read(@PathVariable("id") Long id) {
+		return ResponseEntity.ok(this.service.readById(id));
+	}
+
+	// Get
 	@GetMapping("/readAll")
 	public ResponseEntity<List<ShelterDTO>> readAll() {
 		return ResponseEntity.ok(this.service.readAll());

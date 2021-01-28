@@ -82,4 +82,56 @@ public class DogDTO {
 		this.available = available;
 	}
 
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((ID == null) ? 0 : ID.hashCode());
+		result = prime * result + age;
+		result = prime * result + ((available == null) ? 0 : available.hashCode());
+		result = prime * result + ((breed == null) ? 0 : breed.hashCode());
+		result = prime * result + ((colour == null) ? 0 : colour.hashCode());
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		DogDTO other = (DogDTO) obj;
+		if (ID == null) {
+			if (other.ID != null)
+				return false;
+		} else if (!ID.equals(other.ID))
+			return false;
+		if (age != other.age)
+			return false;
+		if (available == null) {
+			if (other.available != null)
+				return false;
+		} else if (!available.equals(other.available))
+			return false;
+		if (breed == null) {
+			if (other.breed != null)
+				return false;
+		} else if (!breed.equals(other.breed))
+			return false;
+		if (colour == null) {
+			if (other.colour != null)
+				return false;
+		} else if (!colour.equals(other.colour))
+			return false;
+		if (name == null) {
+			if (other.name != null)
+				return false;
+		} else if (!name.equals(other.name))
+			return false;
+		return true;
+	}
+
 }

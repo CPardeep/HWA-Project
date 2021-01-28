@@ -23,6 +23,7 @@ import lombok.NoArgsConstructor;
 public class Shelter {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "ID", unique = true, nullable = false)
 	private Long ID;
 
 	@Column
@@ -38,4 +39,14 @@ public class Shelter {
 	@OnDelete(action = OnDeleteAction.CASCADE)
 	private List<Dog> dogs = new ArrayList<>();
 
+	public Shelter(String name, String addressLine, String postcode, List<Dog> dogs) {
+		super();
+		this.name = name;
+		this.addressLine = addressLine;
+		this.postcode = postcode;
+		this.dogs = dogs;
+	}
+	
+	
 }
+

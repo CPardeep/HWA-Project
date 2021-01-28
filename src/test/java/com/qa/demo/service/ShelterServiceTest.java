@@ -1,10 +1,11 @@
 package com.qa.demo.service;
 
+import static org.mockito.Mockito.times;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-import static org.mockito.Mockito.*;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -13,86 +14,86 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import com.qa.demo.HwaProjectApplication;
-import com.qa.demo.persistence.domain.Dog;
 import com.qa.demo.persistence.domain.Shelter;
-import com.qa.demo.persistence.dto.DogDTO;
-import com.qa.demo.persistence.repos.DogRepo;
-import com.qa.demo.services.DogService;
+import com.qa.demo.persistence.dto.ShelterDTO;
+import com.qa.demo.persistence.repos.ShelterRepo;
+import com.qa.demo.services.ShelterService;
 
 @SpringBootTest(classes = HwaProjectApplication.class)
-class DogServiceTest {
+public class ShelterServiceTest {
 
 	@Autowired // InjectMocks
-	private DogService service;
+	private ShelterService service;
 
 	@Autowired
 	private ModelMapper mapper;
 
 	@MockBean // Mocks
-	private DogRepo repo;
+	private ShelterRepo repo;
 
 	// Data
-	private final Shelter TEST_SHELTER = new Shelter(1L, "73 Bradley Road", "Chetans Shelter", "WV22AZ", null);
-	private final Dog TEST_DOG = new Dog("Kev", "Lebra", 1, "black", "Reserved", TEST_SHELTER);
-	private final Long TEST_ID = 1L;
+	private final Shelter TEST_SHELTER = new Shelter("2nd Home Shelter", "115 Cannock Road", "WV101LF", null);
+	private final Long SHELTER_ID = 1L;
 
-	private DogDTO mapToDTO(Dog dog) {
-		return this.mapper.map(dog, DogDTO.class);
+	private ShelterDTO mapToDTO(Shelter shelter) {
+		return this.mapper.map(shelter, ShelterDTO.class);
 	}
 
 	@Test
 	// create
 	public void createTest() {
 		// Setup
-		TEST_DOG.setID(1L);
+		TEST_SHELTER.setID(SHELTER_ID);
 
 		// Rules --> this is used when it is deffered to another class
-		Mockito.when(this.repo.save(TEST_DOG)).thenReturn(TEST_DOG);
+		Mockito.when(this.repo.save(TEST_SHELTER)).thenReturn(TEST_SHELTER);
 
 		// Action --> this is the part of the method you want to test && // Assertion
 		// --> this is where you check what the method returns is equal to what is
 		// expected.
-		Assertions.assertThat(this.service.create(TEST_DOG)).isEqualTo(mapToDTO(TEST_DOG));
+		Assertions.assertThat(this.service.create(TEST_SHELTER)).isEqualTo(mapToDTO(TEST_SHELTER));
 
 		// Verify --> this is done to see how many times a method spits out stuff
-		Mockito.verify(this.repo, Mockito.times(1)).save(TEST_DOG);
+		Mockito.verify(this.repo, Mockito.times(1)).save(TEST_SHELTER);
 	}
 
 	@Test
 	// read
 	public void readTest() {
 		// Setup
-		TEST_DOG.setID(1L);
+		TEST_SHELTER.setID(SHELTER_ID);
 
 		// Rules --> this is used when it is deffered to another class
-		Mockito.when(this.repo.findById(TEST_ID)).thenReturn(Optional.of(TEST_DOG));
+		Mockito.when(this.repo.findById(SHELTER_ID)).thenReturn(Optional.of(TEST_SHELTER));
 
 		// Action --> this is the part of the method you want to test && // Assertion
 		// --> this is where you check what the method returns is equal to what is
 		// expected.
-		Assertions.assertThat(mapToDTO(TEST_DOG)).isEqualTo(this.service.readById(TEST_ID));
+		Assertions.assertThat(mapToDTO(TEST_SHELTER)).isEqualTo(this.service.readById(SHELTER_ID));
 
 		// Verify --> this is done to see how many times a method spits out stuff
-		Mockito.verify(this.repo, times(1)).findById(TEST_ID);
+		Mockito.verify(this.repo, times(1)).findById(SHELTER_ID);
 	}
 
 	@Test
 	// ReadAll
 	public void readAllTest() {
 		// Setup
-		TEST_DOG.setID(1L);
-		List<Dog> DOGLIST = new ArrayList<Dog>();
-		DOGLIST.add(TEST_DOG);
-		List<DogDTO> DOGDTOLIST = new ArrayList<DogDTO>();
-		DOGDTOLIST.add(mapToDTO(TEST_DOG));
-		
+		TEST_SHELTER.setID(SHELTER_ID);
+
+		List<Shelter> SHELTERLIST = new ArrayList<Shelter>();
+		SHELTERLIST.add(TEST_SHELTER);
+
+		List<ShelterDTO> SHELTERDTOLIST = new ArrayList<ShelterDTO>();
+		SHELTERDTOLIST.add(mapToDTO(TEST_SHELTER));
+
 		// Rules --> this is used when it is deffered to another class
-		Mockito.when(this.repo.findAll()).thenReturn(DOGLIST);
+		Mockito.when(this.repo.findAll()).thenReturn(SHELTERLIST);
 
 		// Action --> this is the part of the method you want to test && // Assertion
 		// --> this is where you check what the method returns is equal to what is
 		// expected.
-		Assertions.assertThat(this.service.readAll()).isEqualTo(DOGDTOLIST);
+		Assertions.assertThat(this.service.readAll()).isEqualTo(SHELTERDTOLIST);
 
 		// Verify --> this is done to see how many times a method spits out stuff
 		Mockito.verify(this.repo, Mockito.times(1)).findAll();
@@ -102,23 +103,24 @@ class DogServiceTest {
 	// read
 	public void updateTest() {
 		// Setup
-		TEST_DOG.setID(1L);
-		Dog TEST_UPDATEDDOG = new Dog(1L, "Savy", "Lebra", 1, "black", "Reserved", TEST_SHELTER);
+		TEST_SHELTER.setID(SHELTER_ID);
+		
+		Shelter TEST_UPDATEDSHELTER = new Shelter(1L, "Chetans Shelter", "73 Bradley Road", "WV22AZ", null);
 
 		// Rules --> this is used when it is deffered to another class
-		Mockito.when(this.repo.findById(TEST_ID)).thenReturn(Optional.of(TEST_DOG));
-		Mockito.when(this.repo.save(TEST_UPDATEDDOG)).thenReturn(TEST_UPDATEDDOG);
-		
+		Mockito.when(this.repo.findById(SHELTER_ID)).thenReturn(Optional.of(TEST_SHELTER));
+		Mockito.when(this.repo.save(TEST_UPDATEDSHELTER)).thenReturn(TEST_UPDATEDSHELTER);
+
 		// Action --> this is the part of the method you want to test && // Assertion
 		// --> this is where you check what the method returns is equal to what is
 		// expected.
-		Assertions.assertThat(mapToDTO(TEST_UPDATEDDOG)).isEqualTo(this.service.update(TEST_ID, TEST_UPDATEDDOG));
+		Assertions.assertThat(mapToDTO(TEST_UPDATEDSHELTER)).isEqualTo(this.service.update(SHELTER_ID, TEST_UPDATEDSHELTER));
 
 		// Verify --> this is done to see how many times a method spits out stuff
-		Mockito.verify(this.repo, times(1)).findById(TEST_ID);
-		Mockito.verify(this.repo, times(1)).save(TEST_UPDATEDDOG);
+		Mockito.verify(this.repo, times(1)).findById(SHELTER_ID);
+		Mockito.verify(this.repo, times(1)).save(TEST_UPDATEDSHELTER);
 	}
-
+	
 	@Test
 	// Delete
 	public void deleteTest() {
@@ -126,7 +128,7 @@ class DogServiceTest {
 		// Action --> this is the part of the method you want to test && // Assertion
 		// --> this is where you check what the method returns is equal to what is
 		// expected.
-		Assertions.assertThat(this.service.delete(TEST_ID)).isEqualTo(true);
+		Assertions.assertThat(this.service.delete(SHELTER_ID)).isEqualTo(true);
 
 	}
 

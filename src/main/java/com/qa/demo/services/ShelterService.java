@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
+import com.qa.demo.exception.ShelterNotFoundException;
 import com.qa.demo.persistence.domain.Shelter;
 import com.qa.demo.persistence.dto.ShelterDTO;
 import com.qa.demo.persistence.repos.ShelterRepo;
@@ -31,6 +32,12 @@ public class ShelterService {
 		// Saves the shelter to the database
 		Shelter result = this.repo.save(shelter);
 		// Returns the converted Shelter object into ShelterDTO
+		return this.mapToDTO(result);
+	}
+
+	// Read
+	public ShelterDTO readById(Long id) {
+		Shelter result = this.repo.findById(id).orElseThrow(ShelterNotFoundException::new);
 		return this.mapToDTO(result);
 	}
 

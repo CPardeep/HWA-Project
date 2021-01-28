@@ -43,7 +43,7 @@
 		<main>
 			<fieldset>
 				<legend>Add your Dog Details:</legend>
-				<form method="GET" action="./HomePage.html">
+				<form method="GET" action="">
 					<div class="form-group">
 	
 						<label class="col-2 col-form-label">Enter the Name of the dog:</label>
@@ -53,7 +53,7 @@
 						<input type="text" class="form-control"id="dogBreed" name="dogBreed" required/>
 			
 						<label for="example-number-input" class="col-2 col-form-label">Age:</label>
-						<input class="form-control" type="number" value="15" id="dogAge" name="dogAge" required>
+						<input class="form-control" type="number" value="0" id="dogAge" name="dogAge" required>
 						
 						<label for="example-color-input" class="col-2 col-form-label">Color</label>
 						<input class="form-control" type="color" value="#563d7c" id="dogColour" name="dogColour">
@@ -64,6 +64,9 @@
 							<option>Reserved</option>
 							<option>No</option>
 						</select>
+
+						<label for="example-number-input" class="col-2 col-form-label">Shelter ID:</label>
+						<input class="form-control" type="number" value="0" id="shelterID" name="shelterID" required>
 	
 						</br>
 	
@@ -73,8 +76,13 @@
 				</form>
 			</fieldset>
 
+		</br>
+
 			<fieldset>
-				<div id="results" class="row"></div>
+				<div class="form-group">
+					<label  for="example-number-input" class="col-2 col-form-label">Output:</label>
+					<textarea class="form-control" id="output" rows="5" readonly></textarea>
+				  </div>
 			</fieldset>
 		</main>
 

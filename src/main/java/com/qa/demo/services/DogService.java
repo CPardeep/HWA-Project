@@ -2,10 +2,9 @@ package com.qa.demo.services;
 
 import java.util.List;
 import java.util.stream.Collectors;
-
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
-
+import com.qa.demo.exception.DogNotFoundException;
 import com.qa.demo.persistence.domain.Dog;
 import com.qa.demo.persistence.dto.DogDTO;
 import com.qa.demo.persistence.repos.DogRepo;
@@ -37,6 +36,13 @@ public class DogService {
 		return this.mapToDTO(result);
 	}
 
+	// Read
+	public DogDTO readById(Long id) {
+		Dog result = this.repo.findById(id).orElseThrow(DogNotFoundException::new);
+		//Returns mapped object from dog to dogdto
+		return this.mapToDTO(result);
+	}
+
 	// Read All
 	public List<DogDTO> readAll() {
 		// Reads all the tuples in database
@@ -48,7 +54,7 @@ public class DogService {
 	// Update
 	public DogDTO update(Long id, Dog dog) {
 		// First step is to fetch it from the database
-		Dog result = this.repo.findById(id).orElseThrow();
+		Dog result = this.repo.findById(id).orElseThrow(DogNotFoundException::new);
 		// Then we can set update with new values
 		result.setName(dog.getName());
 		result.setBreed(dog.getBreed());

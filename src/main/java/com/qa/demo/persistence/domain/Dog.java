@@ -36,18 +36,19 @@ public class Dog {
 	@Column
 	private String available;
 	
-	@ManyToOne(targetEntity = Shelter.class)
+	@ManyToOne
     private Shelter shelter;
 
-	public Dog(String name, String breed, int age, String colour, String available) {
+	public Dog(String name, String breed, int age, String colour, String available, Shelter shelter) {
 		super();
 		this.name = name;
 		this.breed = breed;
 		this.age = age;
 		this.colour = colour;
 		this.available = available;
+		this.shelter = shelter;
 	}
 	
 	
-
+	
 }

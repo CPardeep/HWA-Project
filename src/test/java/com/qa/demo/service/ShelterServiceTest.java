@@ -20,7 +20,7 @@ import com.qa.demo.persistence.repos.ShelterRepo;
 import com.qa.demo.services.ShelterService;
 
 @SpringBootTest(classes = HwaProjectApplication.class)
-public class ShelterServiceTest {
+class ShelterServiceTest {
 
 	@Autowired // InjectMocks
 	private ShelterService service;
@@ -41,7 +41,7 @@ public class ShelterServiceTest {
 
 	@Test
 	// create
-	public void createTest() {
+	void createTest() {
 		// Setup
 		TEST_SHELTER.setID(SHELTER_ID);
 
@@ -59,7 +59,7 @@ public class ShelterServiceTest {
 
 	@Test
 	// read
-	public void readTest() {
+	void readTest() {
 		// Setup
 		TEST_SHELTER.setID(SHELTER_ID);
 
@@ -77,7 +77,7 @@ public class ShelterServiceTest {
 
 	@Test
 	// ReadAll
-	public void readAllTest() {
+	void readAllTest() {
 		// Setup
 		TEST_SHELTER.setID(SHELTER_ID);
 
@@ -101,7 +101,7 @@ public class ShelterServiceTest {
 
 	@Test
 	// read
-	public void updateTest() {
+	void updateTest() {
 		// Setup
 		TEST_SHELTER.setID(SHELTER_ID);
 		
@@ -123,12 +123,12 @@ public class ShelterServiceTest {
 	
 	@Test
 	// Delete
-	public void deleteTest() {
+	void deleteTest() {
 
 		// Action --> this is the part of the method you want to test && // Assertion
 		// --> this is where you check what the method returns is equal to what is
 		// expected.
-		Assertions.assertThat(this.service.delete(SHELTER_ID)).isEqualTo(true);
+		Assertions.assertThat(this.service.delete(SHELTER_ID)).isTrue();
 
 	}
 

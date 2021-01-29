@@ -50,7 +50,7 @@ class TestShelterController {
 
 	// Post
 	@Test
-	public void createDogTest() throws Exception {
+	void createDogTest() throws Exception {
 
 		// Prepare test
 		MockHttpServletRequestBuilder mockRequest = MockMvcRequestBuilders.request(HttpMethod.POST, "/shelter/create")
@@ -70,7 +70,7 @@ class TestShelterController {
 
 	// Get
 	@Test
-	public void readOneShelterTest() throws Exception {
+	void readOneShelterTest() throws Exception {
 		// Prepare test
 		MockHttpServletRequestBuilder mockRequest = MockMvcRequestBuilders.request(HttpMethod.GET,
 				"/shelter/read/" + SHELTER_ID);
@@ -86,7 +86,7 @@ class TestShelterController {
 	}
 
 	@Test
-	public void readAllShelterTest() throws Exception {
+	void readAllShelterTest() throws Exception {
 
 		// Prepare Test
 		List<ShelterDTO> LISTOFSHELTERS = new ArrayList<>();
@@ -105,7 +105,7 @@ class TestShelterController {
 
 	// Put
 	@Test
-	public void updateCat() throws Exception {
+	void updateCat() throws Exception {
 
 		// Prepare Test
 		MockHttpServletRequestBuilder mockRequest = MockMvcRequestBuilders
@@ -125,7 +125,7 @@ class TestShelterController {
 
 	// Delete
 	@Test
-	public void deleteCat() throws Exception {
+	void deleteCat() throws Exception {
 		// Prepare Test
 		MockHttpServletRequestBuilder mockRequest = MockMvcRequestBuilders.request(HttpMethod.DELETE,
 				"/shelter/delete/" + SHELTER_ID);

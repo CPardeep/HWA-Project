@@ -7,72 +7,86 @@ let dogColour = document.querySelector("#dogColour");
 let dogAvailable = document.querySelector("#dogAvailable");
 let shelterID = document.querySelector("#shelterID");
 
-let textarea = (json) => {
-    let textarea = document.createElement("#output");
-    textarea.value(json.stringify);
-};
-
-
 let createDog = () => {
-    readDog();
-    
-    fetch("http://localhost:8080/dog/create", {
-        method: 'POST',
-        body: JSON.stringify({
-            "name": dogName.value,
-            "breed": dogBreed.value,
-            "age": dogAge.value,
-            "colour": dogColour.value,
-            "available": dogAvailable.value,
-            "shelter": {"id": shelterID.value}
-        }),
-        headers: {
-            "Content-Type": "application/json"
-        }
+  fetch(`http://localhost:8080/dog/create`, {
+    method: "POST",
+    body: JSON.stringify({
+      name: dogName.value,
+      breed: dogBreed.value,
+      age: dogAge.value,
+      colour: dogColour.value,
+      available: dogAvailable.value,
+      shelter: { id: shelterID.value },
+    }),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  })
+    .then((response) => response.json())
+    .then((json) => {
+      console.log(json);
+      clearForm();
+      printOutput(json, { json });
     })
-        .then((response) => response.json())
-        .then((json) => {console.log(json);})
-        .catch((err => {console.error("Error something is not working within the create function")}))
+    .catch((err) => {
+      console.error(`Stop! ${err}`);
+      printOutputFalse(err, { err });
+    });
 };
 
 let updateDog = () => {
-
-    fetch("http://localhost:8080/dog/update/"+ dogId.value, {
-        method: 'PUT',
-        body: JSON.stringify({
-            "name": dogName.value,
-            "breed": dogBreed.value,
-            "age": dogAge.value,
-            "colour": dogColour.value,
-            "available": dogAvailable.value
-        }),
-        headers: {
-            "Content-Type": "application/json"
-        }
+  fetch("http://localhost:8080/dog/update/" + dogId.value, {
+    method: "PUT",
+    body: JSON.stringify({
+      name: dogName.value,
+      breed: dogBreed.value,
+      age: dogAge.value,
+      colour: dogColour.value,
+      available: dogAvailable.value,
+      shelter: { id: shelterID.value },
+    }),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  })
+    .then((response) => response.json())
+    .then((json) => {
+      console.log(json);
+      clearForm();
+      printOutput(json, { json });
     })
-        .then((response) => response.json())
-        .then((json) => console.log(json))
-        .catch((err => console.error("Error please stop what you're doing")))
-
+    .catch((err) => console.error("Error please stop what you're doing"));
 };
 
 let delDog = () => {
-    fetch("http://localhost:8080/dog/delete/" + dogId.value, {
-        method: `DELETE`})
-        .then((response) => response.json())
-        .then((json) => console.log(json))
-        .catch((err) => console.error(`Stop! ${err}`));
+  fetch("http://localhost:8080/dog/delete/" + dogId.value, {
+    method: `DELETE`,
+  })
+    .then((response) => response.json())
+    .then((json) => console.log(json))
+    .catch((err) => console.error(`Stop! ${err}`));
 };
 
-let readDog = () => {
+let clearForm = () => {
+  document.getElementById("xForm").reset();
+};
 
-    fetch("http://localhost:8080/shelter/read" + shelterID.value, {
-        method: 'GET',
-        headers: {
-            "Content-Type": "application/json"
-        }
-    })
-        .then((response) => response.json())
-        .then((json) => console.log(json))
-        .catch((err => console.error("Error please stop what you're doing")))
-}
+let printOutput = (element, { json }) => {
+  document.myform.output.value =
+    "Successfull!" +
+    "\r\n" +
+    "Name: " +
+    json.name +
+    "\r\n" +
+    "Breed: " +
+    json.breed +
+    "\r\n" +
+    "Age: " +
+    json.age +
+    "\r\n" +
+    "Colour: " +
+    json.colour +
+    "\r\n" +
+    "Available: " +
+    json.available;
+};

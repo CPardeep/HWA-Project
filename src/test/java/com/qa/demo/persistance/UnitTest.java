@@ -12,13 +12,13 @@ import nl.jqno.equalsverifier.EqualsVerifier;
 class UnitTest {
 
 	@Test
-	public void testShelter() {
+	void testShelter() {
 		EqualsVerifier.simple().forClass(Dog.class)
 		.withPrefabValues(Shelter.class, new Shelter(), new Shelter(1L, "CBS shell", "73 Bradley Lane", "WV22AZ", null)).verify();
 	}
 	
 	@Test
-	public void testDog() {
+	void testDog() {
 		EqualsVerifier.simple().forClass(Dog.class)
 		.withPrefabValues(Dog.class, new Dog(), new Dog(1L, "rokit", "lebra", 1, "#0000", "yes", null)).verify();
 	}

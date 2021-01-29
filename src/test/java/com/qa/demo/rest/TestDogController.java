@@ -27,7 +27,7 @@ import com.qa.demo.persistence.dto.DogDTO;
 @AutoConfigureMockMvc
 @Sql(scripts = { "classpath:testSchema.sql", "classpath:data-test.sql" }, executionPhase = ExecutionPhase.BEFORE_TEST_METHOD)
 @ActiveProfiles(profiles = "test")
-public class TestDogController {
+class TestDogController {
 
 	@Autowired
 	private MockMvc mock;
@@ -52,7 +52,7 @@ public class TestDogController {
 
 	// Post
 	@Test
-	public void createDogTest() throws Exception {
+	void createDogTest() throws Exception {
 
 		// Prepare test
 		MockHttpServletRequestBuilder mockRequest = MockMvcRequestBuilders.request(HttpMethod.POST, "/dog/create")
@@ -72,7 +72,7 @@ public class TestDogController {
 
 	// Get
 	@Test
-	public void readOneDogTest() throws Exception {
+	void readOneDogTest() throws Exception {
 		// Prepare test
 		MockHttpServletRequestBuilder mockRequest = MockMvcRequestBuilders.request(HttpMethod.GET,
 				"/dog/read/" + DOG_ID);
@@ -89,7 +89,7 @@ public class TestDogController {
 
 	// ReadAll
 	@Test
-	public void readAllDogTest() throws Exception {
+	void readAllDogTest() throws Exception {
 
 		// Prepare Test
 		List<DogDTO> LISTOFDOGS = new ArrayList<>();
@@ -109,7 +109,7 @@ public class TestDogController {
 
 	// Put
 	@Test
-	public void updateCat() throws Exception {
+	void updateCat() throws Exception {
 
 		// Prepare Test
 		MockHttpServletRequestBuilder mockRequest = MockMvcRequestBuilders
@@ -129,7 +129,7 @@ public class TestDogController {
 
 	// Delete
 	@Test
-	public void deleteCat() throws Exception {
+	void deleteCat() throws Exception {
 		// Prepare Test
 		MockHttpServletRequestBuilder mockRequest = MockMvcRequestBuilders.request(HttpMethod.DELETE,
 				"/dog/delete/" + DOG_ID);

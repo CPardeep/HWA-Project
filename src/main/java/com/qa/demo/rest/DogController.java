@@ -30,7 +30,7 @@ public class DogController {
 	// Post
 	@PostMapping("/create")
 	public ResponseEntity<DogDTO> create(@RequestBody Dog dog) {
-		return new ResponseEntity<DogDTO>(this.service.create(dog), HttpStatus.CREATED);
+		return new ResponseEntity<>(this.service.create(dog), HttpStatus.CREATED);
 	}
 
 	// Get
@@ -48,14 +48,14 @@ public class DogController {
 	// Put
 	@PutMapping("/update/{id}")
 	public ResponseEntity<DogDTO> update(@PathVariable("id") Long id, @RequestBody Dog dog) {
-		return new ResponseEntity<DogDTO>(this.service.update(id, dog), HttpStatus.ACCEPTED);
+		return new ResponseEntity<>(this.service.update(id, dog), HttpStatus.ACCEPTED);
 	}
 
 	// Delete
 	@DeleteMapping("/delete/{id}")
 	public ResponseEntity<Boolean> delete(@PathVariable Long id) {
 		// Remove Person and return it
-		return new ResponseEntity<Boolean>(this.service.delete(id), HttpStatus.NO_CONTENT);
+		return new ResponseEntity<>(this.service.delete(id), HttpStatus.NO_CONTENT);
 	}
 
 }

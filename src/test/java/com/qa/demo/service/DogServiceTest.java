@@ -42,7 +42,7 @@ class DogServiceTest {
 
 	@Test
 	// create
-	public void createTest() {
+	void createTest() {
 		// Setup
 		TEST_DOG.setID(1L);
 
@@ -60,7 +60,7 @@ class DogServiceTest {
 
 	@Test
 	// read
-	public void readTest() {
+	void readTest() {
 		// Setup
 		TEST_DOG.setID(1L);
 
@@ -78,7 +78,7 @@ class DogServiceTest {
 
 	@Test
 	// ReadAll
-	public void readAllTest() {
+	void readAllTest() {
 		// Setup
 		TEST_DOG.setID(1L);
 		List<Dog> DOGLIST = new ArrayList<Dog>();
@@ -100,7 +100,7 @@ class DogServiceTest {
 
 	@Test
 	// read
-	public void updateTest() {
+	void updateTest() {
 		// Setup
 		TEST_DOG.setID(1L);
 		Dog TEST_UPDATEDDOG = new Dog(1L, "Savy", "Lebra", 1, "black", "Reserved", TEST_SHELTER);
@@ -121,12 +121,12 @@ class DogServiceTest {
 
 	@Test
 	// Delete
-	public void deleteTest() {
+	void deleteTest() {
 
 		// Action --> this is the part of the method you want to test && // Assertion
 		// --> this is where you check what the method returns is equal to what is
 		// expected.
-		Assertions.assertThat(this.service.delete(TEST_ID)).isEqualTo(true);
+		Assertions.assertThat(this.service.delete(TEST_ID)).isTrue();
 
 	}
 

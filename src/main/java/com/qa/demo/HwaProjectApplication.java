@@ -9,7 +9,7 @@ import org.springframework.context.ApplicationContext;
 @SpringBootApplication
 public class HwaProjectApplication {
 
-	private static Logger LOGGER = Logger.getGlobal();
+	private static final Logger LOGGER = Logger.getGlobal();
 
 	public static void main(String[] args) {
 		ApplicationContext context = SpringApplication.run(HwaProjectApplication.class, args);

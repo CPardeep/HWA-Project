@@ -1,7 +1,6 @@
 package com.qa.demo.rest;
 
 import java.util.List;
-
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -16,7 +15,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.qa.demo.persistence.domain.Dog;
 import com.qa.demo.persistence.dto.DogDTO;
 import com.qa.demo.services.DogService;
-
 @RestController
 @RequestMapping("/dog")
 public class DogController {
@@ -32,7 +30,13 @@ public class DogController {
 	// Post
 	@PostMapping("/create")
 	public ResponseEntity<DogDTO> create(@RequestBody Dog dog) {
-		return new ResponseEntity<DogDTO>(this.service.create(dog), HttpStatus.CREATED);
+		return new ResponseEntity<>(this.service.create(dog), HttpStatus.CREATED);
+	}
+
+	// Get
+	@GetMapping("/read/{id}")
+	public ResponseEntity<DogDTO> read(@PathVariable("id") Long id) {
+		return ResponseEntity.ok(this.service.readById(id));
 	}
 
 	// Get
@@ -44,14 +48,14 @@ public class DogController {
 	// Put
 	@PutMapping("/update/{id}")
 	public ResponseEntity<DogDTO> update(@PathVariable("id") Long id, @RequestBody Dog dog) {
-		return new ResponseEntity<DogDTO>(this.service.update(id, dog), HttpStatus.OK);
+		return new ResponseEntity<>(this.service.update(id, dog), HttpStatus.ACCEPTED);
 	}
 
 	// Delete
 	@DeleteMapping("/delete/{id}")
 	public ResponseEntity<Boolean> delete(@PathVariable Long id) {
 		// Remove Person and return it
-		return ResponseEntity.ok(this.service.delete(id));
+		return new ResponseEntity<>(this.service.delete(id), HttpStatus.NO_CONTENT);
 	}
 
 }

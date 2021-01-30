@@ -29,7 +29,13 @@ public class ShelterController {
 	// Post
 	@PostMapping("/create")
 	public ResponseEntity<ShelterDTO> create(@RequestBody Shelter shelter) {
-		return new ResponseEntity<ShelterDTO>(this.service.create(shelter), HttpStatus.CREATED);
+		return new ResponseEntity<>(this.service.create(shelter), HttpStatus.CREATED);
+	}
+
+	// Get
+	@GetMapping("/read/{id}")
+	public ResponseEntity<ShelterDTO> read(@PathVariable("id") Long id) {
+		return ResponseEntity.ok(this.service.readById(id));
 	}
 
 	// Get
@@ -41,14 +47,14 @@ public class ShelterController {
 	// Put
 	@PutMapping("/update/{id}")
 	public ResponseEntity<ShelterDTO> update(@PathVariable("id") Long id, @RequestBody Shelter shelter) {
-		return new ResponseEntity<ShelterDTO>(this.service.update(id, shelter), HttpStatus.ACCEPTED);
+		return new ResponseEntity<>(this.service.update(id, shelter), HttpStatus.ACCEPTED);
 	}
 
 	// Delete
 	@DeleteMapping("/delete/{id}")
 	public ResponseEntity<Boolean> delete(@PathVariable Long id) {
 		// Remove Person and return it
-		return new ResponseEntity<Boolean>(this.service.delete(id), HttpStatus.NO_CONTENT);
+		return new ResponseEntity<>(this.service.delete(id), HttpStatus.NO_CONTENT);
 	}
 
 }

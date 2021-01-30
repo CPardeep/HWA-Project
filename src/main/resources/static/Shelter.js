@@ -60,15 +60,5 @@ let clearForm = () => {
 };
 
 let printOutput = (element, { json }) => {
-  document.myform.output.value =
-    "Successfull!" +
-    "\r\n" +
-    "Shelter Name: " +
-    json.name +
-    "\r\n" +
-    "Address: " +
-    json.addressLine +
-    "\r\n" +
-    "Postcode: " +
-    json.postcode;
+  document.myform.output.value = "Shelter Name: "+json.name+", "+"Address: "+json.addressLine+", "+"Postcode: "+json.postcode;
 };

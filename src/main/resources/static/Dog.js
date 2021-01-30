@@ -72,21 +72,5 @@ let clearForm = () => {
 };
 
 let printOutput = (element, { json }) => {
-  document.myform.output.value =
-    "Successfull!" +
-    "\r\n" +
-    "Name: " +
-    json.name +
-    "\r\n" +
-    "Breed: " +
-    json.breed +
-    "\r\n" +
-    "Age: " +
-    json.age +
-    "\r\n" +
-    "Colour: " +
-    json.colour +
-    "\r\n" +
-    "Available: " +
-    json.available;
+  document.myform.output.value = "Name: "+json.name+", "+"Breed: "+json.breed+", "+"Age: "+json.age +", "+"Colour: "+json.colour+", "+"Available: "+json.available;
 };

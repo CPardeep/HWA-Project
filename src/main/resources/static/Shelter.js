@@ -50,7 +50,17 @@ let delShelter = () => {
   fetch("http://localhost:8080/shelter/delete/" + shelterId.value, {
     method: `DELETE`,
   })
-    .then((response) => response.json())
+    .then((response) => {
+      response.json()
+      //let reply = (response.status == "204" ? document.myform.output.value ="Successfull" : document.myform.output.value ="Failed");
+      if(response.status == "204"){
+        document.myform.output.value ="Successfull";
+        document.myform.setAttribute("id", "done");
+
+      } else{
+        document.myform.output.value ="Failed";
+      }
+    })
     .then((json) => console.log(json))
     .catch((err) => console.error(`Stop! ${err}`));
 };
@@ -61,4 +71,5 @@ let clearForm = () => {
 
 let printOutput = (element, { json }) => {
   document.myform.output.value = "Shelter Name: "+json.name+", "+"Address: "+json.addressLine+", "+"Postcode: "+json.postcode;
+  document.myform.setAttribute("id", "done");
 };

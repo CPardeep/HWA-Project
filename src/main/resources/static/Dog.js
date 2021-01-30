@@ -62,7 +62,16 @@ let delDog = () => {
   fetch("http://localhost:8080/dog/delete/" + dogId.value, {
     method: `DELETE`,
   })
-    .then((response) => response.json())
+    .then((response) => {
+      response.json();
+      //let reply = (response.status == "204" ? document.myform.output.value ="Successfull" : document.myform.output.value ="Failed");
+      if(response.status == "204"){
+        document.myform.output.value ="Successfull";
+        document.myform.setAttribute("id", "done");
+      } else{
+        document.myform.output.value ="Failed";
+      }
+    })
     .then((json) => console.log(json))
     .catch((err) => console.error(`Stop! ${err}`));
 };
@@ -73,4 +82,5 @@ let clearForm = () => {
 
 let printOutput = (element, { json }) => {
   document.myform.output.value = "Name: "+json.name+", "+"Breed: "+json.breed+", "+"Age: "+json.age +", "+"Colour: "+json.colour+", "+"Available: "+json.available;
+  document.myform.setAttribute("id", "done");
 };

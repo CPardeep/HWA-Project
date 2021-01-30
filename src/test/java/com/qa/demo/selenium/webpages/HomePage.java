@@ -6,6 +6,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import com.qa.demo.selenium.webpages.pages.CreateDogPage;
 import com.qa.demo.selenium.webpages.pages.CreateShelterPage;
+import com.qa.demo.selenium.webpages.pages.DeleteDogPage;
+import com.qa.demo.selenium.webpages.pages.DeleteShelterPage;
 import com.qa.demo.selenium.webpages.pages.UpdateDogPage;
 import com.qa.demo.selenium.webpages.pages.UpdateShelterPage;
 
@@ -25,19 +27,27 @@ public class HomePage {
 	@FindBy(xpath = "//*[@id=\"togglethis\"]/ul/li[1]/a")
 	private WebElement createDog;
 	
-	@FindBy(xpath = "//*[@id=\"togglethis\"]/ul/li[4]/a")
-	private WebElement createShelter;
-	
 	@FindBy(xpath = "//*[@id=\"togglethis\"]/ul/li[2]/a")
 	private WebElement updateDog;
 	
+	@FindBy(xpath = "//*[@id=\"togglethis\"]/ul/li[3]/a")
+	private WebElement deleteDog;
+	
+	@FindBy(xpath = "//*[@id=\"togglethis\"]/ul/li[4]/a")
+	private WebElement createShelter;
+	
 	@FindBy(xpath = "//*[@id=\"togglethis\"]/ul/li[5]/a")
 	private WebElement updateShelter;
+	
+	@FindBy(xpath = "//*[@id=\"togglethis\"]/ul/li[6]/a")
+	private WebElement deleteShelter;
 	
 	public CreateDogPage createDogPage;
 	public CreateShelterPage createShelterPage;
 	public UpdateDogPage updateDogPage;
 	public UpdateShelterPage updateShelterPage;
+	public DeleteDogPage deleteDogPage;
+	public DeleteShelterPage deleteShelterPage;
 	
 	public HomePage(WebDriver driver) {
 		driver.get(URL);
@@ -45,6 +55,8 @@ public class HomePage {
 		this.createShelterPage = PageFactory.initElements(driver, CreateShelterPage.class);
 		this.updateDogPage = PageFactory.initElements(driver, UpdateDogPage.class);
 		this.updateShelterPage = PageFactory.initElements(driver, UpdateShelterPage.class);
+		this.deleteDogPage = PageFactory.initElements(driver, DeleteDogPage.class);
+		this.deleteShelterPage = PageFactory.initElements(driver, DeleteShelterPage.class);
 	}
 	
 	public void readAllDogs() {
@@ -73,6 +85,16 @@ public class HomePage {
 	public void clickUpdateShelter() {
 		navbarToggler.click();
 		updateShelter.click();
+	}
+	
+	public void clickDeleteDog() {
+		navbarToggler.click();
+		deleteDog.click();
+	}
+	
+	public void clickDeleteShelter() {
+		navbarToggler.click();
+		deleteShelter.click();
 	}
 
 }

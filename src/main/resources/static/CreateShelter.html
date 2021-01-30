@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Document</title>
+<title>Create Shelter</title>
 
 <!-- Bootstrap CSS link here -->
 <link
@@ -18,7 +18,7 @@
 		<header>
 			<nav class="navbar navbar-light" style="background-color: #ffffff">
 				<div class="container-fluid">
-					<a class="navbar-brand" href="./HomePage.html"> <img src="../resources/4c965a28f1760097c4797e62315558f3.png" height="30" alt="logo" loading="lazy" />
+										<a class="navbar-brand" href="./HomePage.html"> <img src="https://lh3.googleusercontent.com/proxy/liRuPqC8-BsThqhiqYIklroliIAU6WIp6nla57qquF6DFZNAfT50nhAyb59PIOgLOUagz2kXt79a_3bZ-RpPPbdECBbmNZ6VSOmyNZb4u2L9QUVBjHWrAtv4dXI7e2GD1HdQ79x3VH7P" height="35" alt="logo" loading="lazy" />
 						<h1>S H E L T E R</h1>
 					</a>
 
@@ -42,8 +42,8 @@
 
 		<main>
 			<fieldset>
-                <legend>Update Shelter Details:</legend>
-                <form method="GET" action="./HomePage.html">
+                <legend>Create Shelter Details:</legend>
+                <form id="xForm" method="GET" action=" ">
                     <div class="form-group">
     
                         <label class="col-2 col-form-label">Enter the Name of Shelter:</label>
@@ -56,15 +56,21 @@
                         <input type="text" class="form-control" id="postcode" name="postcode" required/>
     
                         </br>
-    
-                        <button type="submit" class="btn btn-primary text-center" onclick="createShelter()">Create</button>
             
                     </div>
-                </form>
+				</form>
+				
+				<button class="btn btn-primary text-center" onclick="createShelter()">Create</button>
+
             </fieldset>
 
 			<fieldset>
-				<div id="results" class="row"></div>
+			</br>
+				<form name="myform">
+					<label for="example-number-input" class="col-2 col-form-label">Output:</label>
+					<textarea class="form-control" id="output" name="output" rows="5"
+						readonly></textarea>
+				</form>
 			</fieldset>
 		</main>
 

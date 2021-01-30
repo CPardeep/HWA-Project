@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Document</title>
+<title>Create Dog</title>
 
 <!-- Bootstrap CSS link here -->
 <link
@@ -18,22 +18,32 @@
 		<header>
 			<nav class="navbar navbar-light" style="background-color: #ffffff">
 				<div class="container-fluid">
-					<a class="navbar-brand" href="./HomePage.html"> <img src="../resources/4c965a28f1760097c4797e62315558f3.png" height="30" alt="logo" loading="lazy" />
+					<a class="navbar-brand" href="./HomePage.html"> <img
+						src="https://lh3.googleusercontent.com/proxy/liRuPqC8-BsThqhiqYIklroliIAU6WIp6nla57qquF6DFZNAfT50nhAyb59PIOgLOUagz2kXt79a_3bZ-RpPPbdECBbmNZ6VSOmyNZb4u2L9QUVBjHWrAtv4dXI7e2GD1HdQ79x3VH7P"
+						height="35" alt="logo" loading="lazy" />
 						<h1>S H E L T E R</h1>
 					</a>
 
-					<button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#togglethis" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+					<button class="navbar-toggler" data-bs-toggle="collapse"
+						data-bs-target="#togglethis" aria-controls="navbarNav"
+						aria-expanded="false" aria-label="Toggle navigation">
 						<span class="navbar-toggler-icon"></span>
 					</button>
 
 					<div class="collapse navbar-collapse" id="togglethis">
 						<ul class="navbar-nav">
-							<li class="nav-item"><a href="./CreateDog.html" class="nav-link">C R E A T E - D O G</a></li>
-							<li class="nav-item"><a href="./UpdateDog.html" class="nav-link">U P D A T E - D O G</a></li>
-							<li class="nav-item"><a href="./DeleteDog.html" class="nav-link">D E L E T E - D O G</a></li>
-							<li class="nav-item"><a href="./CreateShelter.html" class="nav-link">C R E A T E - S H E L T E R</a></li>
-							<li class="nav-item"><a href="./UpdateShelter.html" class="nav-link">U P D A T E - S H E L T E R</a></li>
-							<li class="nav-item"><a href="./DeleteShelter.html" class="nav-link">D E L E T E - S H E L T E R</a></li>
+							<li class="nav-item"><a href="./CreateDog.html"
+								class="nav-link">C R E A T E - D O G</a></li>
+							<li class="nav-item"><a href="./UpdateDog.html"
+								class="nav-link">U P D A T E - D O G</a></li>
+							<li class="nav-item"><a href="./DeleteDog.html"
+								class="nav-link">D E L E T E - D O G</a></li>
+							<li class="nav-item"><a href="./CreateShelter.html"
+								class="nav-link">C R E A T E - S H E L T E R</a></li>
+							<li class="nav-item"><a href="./UpdateShelter.html"
+								class="nav-link">U P D A T E - S H E L T E R</a></li>
+							<li class="nav-item"><a href="./DeleteShelter.html"
+								class="nav-link">D E L E T E - S H E L T E R</a></li>
 						</ul>
 					</div>
 				</div>
@@ -42,45 +52,50 @@
 
 		<main>
 			<fieldset>
-				<legend>Add your Pet Details:</legend>
-				<form method="GET" action="./HomePage.html">
+				<legend>Add your Dog Details:</legend>
+				<form id="xForm" method="GET" action=" ">
 					<div class="form-group">
-	
-						<label class="col-2 col-form-label">Enter the Name of the dog:</label>
-						<input type="text" class="form-control" id="dogName" name="dogName" required/>
-							
-						<label class="col-2 col-form-label">Enter the Breed of the dog:</label>
-						<input type="text" class="form-control"id="dogBreed" name="dogBreed" required/>
-			
-						<label for="example-number-input" class="col-2 col-form-label">Age:</label>
-						<input class="form-control" type="number" value="15" id="dogAge" name="dogAge">
-						
-						<label for="example-color-input" class="col-2 col-form-label">Color</label>
-						<input class="form-control" type="color" value="#563d7c" id="dogColour" name="dogColour">
-	
-						<label for="exampleFormControlSelect1" class="col-2 col-form-label">Available:</label>
-						<select class="form-control" id="dogAvailable" name="dogAvailable">
+
+						<label class="col-2 col-form-label">Enter the Name of the
+							dog:</label> <input type="text" class="form-control" id="dogName"
+							name="dogName" required /> <label class="col-2 col-form-label">Enter
+							the Breed of the dog:</label> <input type="text" class="form-control"
+							id="dogBreed" name="dogBreed" required /> <label
+							for="example-number-input" class="col-2 col-form-label">Age:</label>
+						<input class="form-control" type="number" value="0" id="dogAge"
+							name="dogAge" required> <label for="example-color-input"
+							class="col-2 col-form-label">Color</label> <input
+							class="form-control" type="color" value="#563d7c" id="dogColour"
+							name="dogColour"> <label for="exampleFormControlSelect1"
+							class="col-2 col-form-label">Available:</label> <select
+							class="form-control" id="dogAvailable" name="dogAvailable"
+							required>
 							<option>Yes</option>
 							<option>Reserved</option>
 							<option>No</option>
-						</select>
-	
-						</br>
-	
-						<button type="submit" class="btn btn-primary text-center" onclick="createDog()">Add Dog</button>
-			
+						</select> <label for="example-number-input" class="col-2 col-form-label">Shelter
+							ID:</label> <input class="form-control" type="number" value="0"
+							id="shelterID" name="shelterID" required> </br>
+
 					</div>
+				</form>
+
+				<button class="btn btn-primary text-center" onclick="createDog()">Add Dog</button>
+
+			</fieldset>
+
+
+			<fieldset>
+				<form name="myform">
+					<label for="example-number-input" class="col-2 col-form-label">Output:</label>
+					<textarea class="form-control" id="output" name="output" rows="5"
+						readonly></textarea>
 				</form>
 			</fieldset>
 
-			<fieldset>
-				<div id="results" class="row"></div>
-			</fieldset>
 		</main>
 
-	</br>
-	</br>
-	</br>
+		</br> </br> </br>
 
 		<footer>
 			<p>&copy; 2021 www.shelter.co.uk</p>

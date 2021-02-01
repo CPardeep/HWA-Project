@@ -2,14 +2,14 @@
 
 ## Getting Started
 
-- JIRA Board Link - https://team-1606236407721.atlassian.net/jira/software/projects/IMS/boards/5
+- JIRA Board Link - https://team-1606236407721.atlassian.net/jira/software/projects/HWAP/boards/7
 
 ### Prerequisites
 What things you need to install the software and how to install them
 Git Bash --> https://gitforwindows.org/
 Java jdk-14.0.1 --> https://www.oracle.com/java/technologies/javase/jdk14-archive-downloads.html
 Maven --> https://maven.apache.org/download.cgi
-Springboot --> 
+Springboot --> https://spring.io/guides/gs/spring-boot/
 
 ### Installing
 
@@ -20,32 +20,22 @@ A step by step series of examples that tell you how to get a development env run
 2. cd to the directory where your file is stored, in my case its in Desktop and go into the documentation folder.
 
 ```
-$ cd "   your file directory    "/IMS-Starter/Documentation
+$ cd "   your file directory    "/HWA-Project
 ```
 
-3. Using the command below run ims-0.0.1-jar-with-dependencies.jar file
+3. Unwrap the war file 
 
 ```
-$ java -jar ims-0.0.1-jar-with-dependencies.jar
-```
-
-4. Follow the steps, when it asks for the username & password, type in root and press enter.
+$  java -jar HWA-Project-0.0.1-SNAPSHOT.war
 
 ```
-What is your username
-root
-What is your password
-root
-```
-
-5. You are in the environment now, here is an example of how to read customers. Good Luck. 
 
 ## Running the tests
 
 To run tests please use git bash and use the following file directory structure to cd too. Make sure in the IMS-Starter folder there should be a pom file like below. To see the contents of a folder please use the command ls.
 
 ```
-$ cd "   your file directory    "/IMS-Starter
+$ cd "   your file directory    "/HWA-Project
 ```
 
 ### Unit Tests 
@@ -79,8 +69,6 @@ $ mvn -Dtest= "Test name", "Test name" test
 We use [SemVer](http://semver.org/) for versioning.
 
 ## Authors
-
-* **Chris Perrins** - *Initial work* - [christophperrins](https://github.com/christophperrins)
 * **Chetan Pardeep** - *Rest of the work* - [chetanpardeep](https://github.com/QAcpardeep)
 
 ## License

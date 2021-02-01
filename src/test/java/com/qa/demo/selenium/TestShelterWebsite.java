@@ -31,7 +31,7 @@ class TestShelterWebsite {
 	}
 
 	@Test
-	public void Test_createDogs() throws InterruptedException {
+	void Test_createDogs() throws InterruptedException {
 
 		// Site Navigation
 		driver.get("http://localhost:8080/HomePage.html");
@@ -54,7 +54,7 @@ class TestShelterWebsite {
 	}
 
 	@Test
-	public void Test_createShelters() throws InterruptedException {
+	void Test_createShelters() throws InterruptedException {
 
 		// Site Navigation
 		driver.get("http://localhost:8080/HomePage.html");
@@ -76,7 +76,7 @@ class TestShelterWebsite {
 	}
 
 	@Test
-	public void Test_updateDog() throws InterruptedException {
+	void Test_updateDog() throws InterruptedException {
 
 		// Site Navigation
 		driver.get("http://localhost:8080/HomePage.html");
@@ -98,7 +98,7 @@ class TestShelterWebsite {
 	}
 
 	@Test
-	public void Test_updateShelter() throws InterruptedException {
+	void Test_updateShelter() throws InterruptedException {
 
 		// Site Navigation
 		driver.get("http://localhost:8080/HomePage.html");
@@ -120,7 +120,7 @@ class TestShelterWebsite {
 	}
 
 	@Test
-	public void Test_deleteDog() throws InterruptedException {
+	void Test_deleteDog() throws InterruptedException {
 
 		// Site Navigation
 		driver.get("http://localhost:8080/HomePage.html");
@@ -141,7 +141,7 @@ class TestShelterWebsite {
 	}
 
 	@Test
-	public void Test_deleteShelter() throws InterruptedException {
+	void Test_deleteShelter() throws InterruptedException {
 
 		// Site Navigation
 		driver.get("http://localhost:8080/HomePage.html");
@@ -161,7 +161,7 @@ class TestShelterWebsite {
 	}
 
 	@Test
-	public void Test_ReadDogs() throws InterruptedException {
+	void Test_ReadDogs() throws InterruptedException {
 
 		// Site Navigation
 		driver.get("http://localhost:8080/HomePage.html");
@@ -173,7 +173,7 @@ class TestShelterWebsite {
 	}
 
 	@Test
-	public void Test_ReadShelters() throws InterruptedException {
+	void Test_ReadShelters() throws InterruptedException {
 
 		// Site Navigation
 		driver.get("http://localhost:8080/HomePage.html");

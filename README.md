@@ -59,6 +59,12 @@ Run a set of unit test classes.
 $ mvn -Dtest= "Test name", "Test name" test
 ```
 
+Run Integration test classes.
+
+```
+$ mvn clean verify -P integration-test
+```
+
 
 ## Built With
 
@@ -69,7 +75,7 @@ $ mvn -Dtest= "Test name", "Test name" test
 We use [SemVer](http://semver.org/) for versioning.
 
 ## Authors
-* **Chetan Pardeep** - *Rest of the work* - [chetanpardeep](https://github.com/QAcpardeep)
+* **Chetan Pardeep** - *work* - [chetanpardeep](https://github.com/QAcpardeep)
 
 ## License
 

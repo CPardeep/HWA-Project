@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Update Dog</title>
+
+<!-- Bootstrap CSS link here -->
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
+	crossorigin="anonymous" />
+</head>
+
+<body>
+	<div class="container">
+		<header>
+			<nav class="navbar navbar-light" style="background-color: #ffffff">
+				<div class="container-fluid">
+					<a class="navbar-brand" href="./HomePage.html">
+						<h1>S H E L T E R</h1>
+					</a>
+
+					<button class="navbar-toggler" data-bs-toggle="collapse"
+						data-bs-target="#togglethis" aria-controls="navbarNav"
+						aria-expanded="false" aria-label="Toggle navigation">
+						<span class="navbar-toggler-icon"></span>
+					</button>
+
+					<div class="collapse navbar-collapse" id="togglethis">
+						<ul class="navbar-nav">
+							<li class="nav-item"><a href="./CreateDog.html"
+								class="nav-link">C R E A T E - D O G</a></li>
+							<li class="nav-item"><a href="./UpdateDog.html"
+								class="nav-link">U P D A T E - D O G</a></li>
+							<li class="nav-item"><a href="./DeleteDog.html"
+								class="nav-link">D E L E T E - D O G</a></li>
+							<li class="nav-item"><a href="./CreateShelter.html"
+								class="nav-link">C R E A T E - S H E L T E R</a></li>
+							<li class="nav-item"><a href="./UpdateShelter.html"
+								class="nav-link">U P D A T E - S H E L T E R</a></li>
+							<li class="nav-item"><a href="./DeleteShelter.html"
+								class="nav-link">D E L E T E - S H E L T E R</a></li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+		</header>
+
+		<main>
+			<fieldset>
+				<legend>Update your Dog Details:</legend>
+				<form id="xForm" method="GET" action=" ">
+					<div class="form-group">
+
+						<label class="col-2 col-form-label">Dog ID:</label> <input
+							type="text" class="form-control" id="dogId" name="dogId" required />
+
+						<label class="col-2 col-form-label">Enter the Name of the
+							dog:</label> <input type="text" class="form-control" id="dogName"
+							name="dogName" required /> <label class="col-2 col-form-label">Enter
+							the Breed of the dog:</label> <input type="text" class="form-control"
+							id="dogBreed" name="dogBreed" required /> <label
+							for="example-number-input" class="col-2 col-form-label">Age:</label>
+						<input class="form-control" type="number" value="0" id="dogAge"
+							name="dogAge" required> <label for="example-color-input"
+							class="col-2 col-form-label">Color</label> <input
+							class="form-control" type="color" value="#563d7c" id="dogColour"
+							name="dogColour"> <label for="exampleFormControlSelect1"
+							class="col-2 col-form-label">Available:</label> <select
+							class="form-control" id="dogAvailable" name="dogAvailable"
+							required>
+							<option>Yes</option>
+							<option>Reserved</option>
+							<option>No</option>
+						</select> <label for="example-number-input" class="col-2 col-form-label">Shelter
+							ID:</label> <input class="form-control" type="number" value="0"
+							id="shelterID" name="shelterID" required> </br>
+
+					</div>
+				</form>
+				<button class="btn btn-primary text-center" onclick="updateDog()">Update</button>
+			</fieldset>
+
+			<fieldset>
+				</br>
+				<form name="myform">
+					<label for="example-number-input" class="col-2 col-form-label">Output:</label>
+					<textarea class="form-control" id="output" name="output" rows="5"
+						readonly></textarea>
+				</form>
+			</fieldset>
+		</main>
+
+		</br> </br> </br>
+
+		<footer>
+			<p>&copy; 2021 www.shelter.co.uk</p>
+		</footer>
+
+		<!-- JavaScript Link here -->
+		<script
+			src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+			crossorigin="anonymous"></script>
+		<script src="./Dog.js"></script>
+	</div>
+</body>
+</html>
